@@ -174,10 +174,10 @@ def draw_status_overlay(video_frame, current_letter, samples_collected_for_lette
     # color difference is something you notice in your peripheral vision
     # while focused on getting your hand shape right, a text difference is not.
     if hand_was_detected:
-        cv2.putText(video_frame, "Hand: DETECTED", (20, 120),
+        cv2.putText(video_frame, "HAND DETECTED", (20, 120),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
     else:
-        cv2.putText(video_frame, "Hand: NOT DETECTED", (20, 120),
+        cv2.putText(video_frame, "NO HAND DETECTED", (20, 120),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2)
 
     if samples_collected_for_letter >= SAMPLES_PER_LETTER_TARGET:
@@ -299,7 +299,7 @@ def main():
             else:
                 # Saving a row of meaningless numbers would quietly poison
                 # the training data later, so we refuse and tell the user why.
-                # The red "Hand: NOT DETECTED" status above is the on-screen
+                # The red "NO HAND DETECTED" status above is the on-screen
                 # half of this warning; this terminal line is the other half.
                 print("WARNING: no hand detected -- sample not saved.")
 
